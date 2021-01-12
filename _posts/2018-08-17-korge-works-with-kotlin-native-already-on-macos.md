@@ -3,7 +3,7 @@ layout: post
 title:  "Korge/Korlibs already works with Kotlin-Native on MacOS"
 author: soywiz
 categories: [ Articles ]
-image: assets/images/52348213274-1.jpg
+image: assets/images/titles/korge-works-with-kotlin-native-already-on-macos.jpg
 ---
 
 After some tries and several bug reports, Korge already works on Kotlin/Native.I have uploaded an `.app` file here

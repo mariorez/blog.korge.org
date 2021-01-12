@@ -3,7 +3,7 @@ layout: post
 title: "Showcase: RezMike's 2048 clone"
 author: soywiz
 categories: [ Showcases ]
-image: assets/images/1-2.png
+image: assets/images/titles/showcase-2048-clone.jpg
 ---
 
 RezMike did a 2048 clone using KorGE.

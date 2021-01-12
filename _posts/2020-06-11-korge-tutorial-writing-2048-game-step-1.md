@@ -3,7 +3,7 @@ layout: post
 title: "KorGE Tutorial - Writing 2048 game. Step 1 - Views"
 author: rezmike
 categories: [ Tutorials ]
-image: assets/images/51935839105.png
+image: assets/images/titles/korge-tutorial-writing-2048-game-step-1.jpg
 ---
 
 In [the previous step](https://blog.korge.org/2020/06/korge-tutorial-writing-2048-game-step-0.html) we have created and

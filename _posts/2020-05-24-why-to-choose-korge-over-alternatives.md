@@ -3,7 +3,7 @@ layout: post
 title: "Why choose KorGE over other alternatives?"
 author: soywiz
 categories: [ Articles ]
-image: assets/images/2340457563.jpg
+image: assets/images/titles/why-to-choose-korge-over-alternatives.jpg
 ---
 
 You might wonder why should you decide to use KorGE instead of other Game Engines.  

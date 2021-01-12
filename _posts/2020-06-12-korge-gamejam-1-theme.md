@@ -3,7 +3,7 @@ layout: post
 title: "KorGE Gamejam #1 - Theme"
 author: soywiz
 categories: [ Gamejam ]
-image: assets/images/classic.png
+image: assets/images/titles/korge-gamejam-1-theme.jpg
 ---
 
 The theme of the first KorGE gamejam is:

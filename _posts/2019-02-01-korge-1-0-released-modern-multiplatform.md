@@ -3,7 +3,7 @@ layout: post
 title:  "Korge 1.0 Released! 🎉🎉🎊 Modern Multiplatform #gameengine for #kotlin"
 author: soywiz
 categories: [ Showcases ]
-image: assets/images/1.png
+image: assets/images/titles/korge-1-0-released-modern-multiplatform.jpg
 featured: true
 ---
 

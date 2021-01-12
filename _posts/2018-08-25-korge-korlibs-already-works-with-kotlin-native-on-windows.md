@@ -3,7 +3,7 @@ layout: post
 title:  "Korge/Korlibs already works with Kotlin-Native on Windows"
 author: soywiz
 categories: [ Articles ]
-image: assets/images/korge-dragonbones-win64-1.jpg
+image: assets/images/titles/korge-korlibs-already-works-with-kotlin-native-on-windows.jpg
 ---
 
 Last Week Korge started to work with Kotlin/Native on MacOS target. And of course, it also run on the JVM and the

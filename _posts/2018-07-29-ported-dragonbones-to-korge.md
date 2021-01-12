@@ -3,7 +3,7 @@ layout: post
 title:  "Ported DragonBones to Kotlin and Korge"
 author: soywiz
 categories: [ Articles ]
-image: assets/images/52348213274.jpg
+image: assets/images/titles/ported-dragonbones-to-korge.jpg
 ---
 
 DragonBones is a great free skeletal-based animation software

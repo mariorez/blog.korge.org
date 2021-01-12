@@ -3,7 +3,7 @@ layout: post
 title: "KorGE Tutorial - Writing 2048 game. Step 2 - State and interaction"
 author: rezmike
 categories: [ Tutorials ]
-image: assets/images/image.png
+image: assets/images/titles/korge-tutorial-writing-2048-game-step-2-controls.jpg
 ---
 
 In [the previous step](https://blog.korge.org/korge-tutorial-writing-2048-game-step-1/) we have added all static

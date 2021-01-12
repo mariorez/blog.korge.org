@@ -3,7 +3,7 @@ layout: post
 title: "KorGE Tutorial - Writing 2048 game. Step 4 - Data saving"
 author: rezmike
 categories: [ Tutorials ]
-image: assets/images/51935839105%20(11).png
+image: assets/images/titles/korge-tutorial-writing-2048-game-step-4-data-saving.jpg
 ---
 
 In [the previous step](https://blog.korge.org/korge-tutorial-writing-2048-game-step-1/) we have added movement and

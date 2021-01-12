@@ -3,7 +3,7 @@ layout: post
 title: "KorGE Tutorial - Writing 2048 game. Step 3 - Animation"
 author: rezmike
 categories: [ Tutorials ]
-image: assets/images/51935839105-1.png
+image: assets/images/titles/korge-tutorial-writing-2048-game-step-3-animation.jpg
 ---
 
 In [the previous step](https://blog.korge.org/korge-tutorial-writing-2048-game-step-2-controls/) we have added

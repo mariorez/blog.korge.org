@@ -3,7 +3,7 @@ layout: post
 title: "KorGE Tutorial - Writing 2048 game. Step 0 - Introduction"
 author: rezmike
 categories: [ Tutorials ]
-image: assets/images/52348213274.png
+image: assets/images/titles/korge-tutorial-writing-2048-game-step-0.jpg
 ---
 
 [KorGE](https://korge.org/) is an [open source](https://github.com/korlibs/korge) multiplatform game engine written

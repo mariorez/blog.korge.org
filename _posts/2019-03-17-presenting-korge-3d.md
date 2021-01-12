@@ -3,7 +3,7 @@ layout: post
 title:  "Presenting KorGE-3D"
 author: soywiz
 categories: [ Articles ]
-image: assets/images/Screenshot-2019-03-17-at-06.39.29.png
+image: assets/images/titles/presenting-korge-3d.jpg
 ---
 
 Today we are happy to announce that we have released the first preview of KorGE-3D.

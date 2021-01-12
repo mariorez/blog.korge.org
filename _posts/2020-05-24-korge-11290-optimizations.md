@@ -3,7 +3,7 @@ layout: post
 title: "KorGE 1.12.8.0: Huge Optimizations!"
 author: soywiz
 categories: [ Releases ]
-image: assets/images/1-3.png
+image: assets/images/titles/korge-11290-optimizations.jpg
 featured: true
 ---
 

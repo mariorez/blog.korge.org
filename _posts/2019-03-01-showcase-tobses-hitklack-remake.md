@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Korge 1.0 Released! 🎉🎉🎊 Modern Multiplatform #gameengine for #kotlin"
+title:  "Showcase: Tobse's HitKlack Remake"
 author: soywiz
 categories: [ Articles ]
-image: assets/images/52348213274-2.jpg
+image: assets/images/titles/showcase-tobses-hitklack-remake.jpg
 ---
 
 Tobse did a remake of the retro console Mephisto Hit Klack.

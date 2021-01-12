@@ -3,7 +3,7 @@ layout: post
 title: "KorGE Videodigest #1"
 author: nico
 categories: [ Videodigest ]
-image: assets/images/videodigest1.jpg
+image: assets/images/titles/korge-videodigest-1.jpg
 ---
 
 Hey guys. We got so many news for you: Korge 2.0, new homepage, patreon!!

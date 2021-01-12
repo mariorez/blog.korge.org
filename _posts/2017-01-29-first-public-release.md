@@ -3,7 +3,7 @@ layout: post
 title:  "First public release"
 author: soywiz
 categories: [ Articles ]
-image: assets/images/6.jpg
+image: assets/images/titles/first-public-release.jpg
 ---
 
 Today, the first public version of KorGE 0.5.2 has been published.

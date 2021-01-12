@@ -3,7 +3,7 @@ layout: post
 title: "KorGE 2.0 feature list preview"
 author: soywiz
 categories: [ Preview ]
-image: assets/images/1-6.png
+image: assets/images/titles/korge-2-0-feature-preview.jpg
 ---
 
 We are happy to announce that we started sketching the roadmap for KorGE version 2.0\. Together with fixing all currently known bugs and a code cleanup including the removal of deprecated sources, these features are planned for the new milestone:

@@ -3,7 +3,7 @@ layout: post
 title:  "Showcase: Tobse's Fruty Crush"
 author: soywiz
 categories: [ Showcases ]
-image: assets/images/1-1.png
+image: assets/images/titles/showcase-tobses-candy-crush-clone.jpg
 ---
 
 Tobse made a Candy Crush Clone:

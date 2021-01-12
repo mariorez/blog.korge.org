@@ -3,7 +3,7 @@ layout: post
 title: "Winners of the 1st KorGE gamejam"
 author: soywiz
 categories: [ Gamejam ]
-image: assets/images/2340457563.jpg.png
+image: assets/images/titles/winners-of-1st-korge-gamejam.jpg
 ---
 
 We are happy to announce the winners of the first KorGE gamejam.
