@@ -2,7 +2,7 @@
 layout: post
 title:  "First public release"
 author: soywiz
-categories: [ Articles ]
+categories: [ Releases ]
 image: assets/images/titles/first-public-release.jpg
 ---
 

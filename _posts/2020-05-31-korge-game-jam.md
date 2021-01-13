@@ -2,7 +2,7 @@
 layout: post
 title: "KorGE 1st Game Jam - 12-June - 14-June"
 author: soywiz
-categories: [ Articles ]
+categories: [ Gamejam ]
 image: assets/images/titles/korge-game-jam.jpg
 ---
 

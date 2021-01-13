@@ -2,9 +2,8 @@
 layout: post
 title:  "Korge 1.0 Released! 🎉🎉🎊 Modern Multiplatform #gameengine for #kotlin"
 author: soywiz
-categories: [ Showcases ]
+categories: [ Releases ]
 image: assets/images/titles/korge-1-0-released-modern-multiplatform.jpg
-featured: true
 ---
 
 After two years of development, I have finally released the first version of KorGE, a Modern Multiplatform Game Engine fully written in Kotlin.It can produce small native applications, and allows to write the games in Kotlin Common. It provides a gradle plugin with tasks to target to JVM, JS Browser and Cordova, Native Desktop, Native Android and Native iOS.
