@@ -2,7 +2,7 @@
 layout: post
 title:  "Showcase: Tobse's HitKlack Remake"
 author: soywiz
-categories: [ Articles ]
+categories: [ Showcases ]
 image: assets/images/titles/showcase-tobses-hitklack-remake.jpg
 ---
 
