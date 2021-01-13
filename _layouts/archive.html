@@ -16,10 +16,9 @@ title: Archive
         </div>
         <div class="masonrygrid row listrecent">
 
-            {% for post in page.posts %}
-
+			{% assign posts = site.posts | where: "categories", page.key %}
+            {% for post in posts %}
             {% include postbox.html %}
-
             {% endfor %}
 
         </div>

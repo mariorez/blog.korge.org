@@ -44,8 +44,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-seo-tag
-  - jekyll-archives
-        
+
 # Archives
 jekyll-archives:
   enabled:
@@ -53,7 +52,12 @@ jekyll-archives:
   layout: archive
   permalinks:
     category: '/category/:name/'
-    
+
+collections:
+  category:
+    output: true
+    permalink: /:collection/:name
+
 # Other
 markdown: kramdown
 highlighter: rouge
