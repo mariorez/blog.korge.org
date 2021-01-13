@@ -56,10 +56,10 @@ jekyll-archives:
 collections:
   category:
     output: true
-    permalink: /:collection/:name
+    permalink: /:collection/:name/
 
 # Other
 markdown: kramdown
 highlighter: rouge
 #permalink: /:categories/:year/:month/:day/:title:output_ext
-permalink: /:title
+permalink: /:title/
