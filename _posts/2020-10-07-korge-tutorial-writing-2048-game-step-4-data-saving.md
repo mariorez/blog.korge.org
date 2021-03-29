@@ -8,8 +8,8 @@ image: assets/images/titles/korge-tutorial-writing-2048-game-step-4-data-saving.
 
 In [the previous step](https://blog.korge.org/korge-tutorial-writing-2048-game-step-1/) we have added movement and
 merging of blocks with animation. The game is already playable. But to make it complete, we need to add score points. In
-this step we will do it, and along with that we will also add another feature – saving data of current game (game field
-and score). In the end, we'll have a complete 2048 game:
+this step we will do it, and along with that we will also add another feature – saving data of the current game
+(game field and score). In the end, we'll have a complete 2048 game:
 
 ![](/assets/images/sample%20(1).gif)
 
@@ -17,7 +17,7 @@ and score). In the end, we'll have a complete 2048 game:
 
 Let's see what we want from the score. First, the score should be updated every time a player merge blocks, and the
 number of points should be increased by the sum of values of blocks that were merged. So if the player merge two blocks
-with the number 8 on them, we should increase the score by 16 points. Second, when the current score start to exceed the
+with the number 8 on them, we should increase the score by 16 points. Second, when the current score starts to exceed the
 best score, the best score should be updated accordingly.
 
 Later, we'll add saving both scores in a storage and getting them from it – I'll describe the logic later. Now let's
@@ -50,8 +50,8 @@ these values in different places and they all can't be accessed in the same plac
 
 The better way is to use `ObservableProperty` class provided by `korio` library. This class has a constructor with the
 initial value, a `value` property to get the current value, and two very useful functions – `observe(handler)`
-and `update(value)`. The first one lets you add a new `hander` that will observe and handle new values of the property
-when the property is update. The second one lets you update the property value. If we use this class for our score
+and `update(value)`. The first one allows you to add a new `hander` that will observe and handle new values of the property
+when the property is updated. The second one allows you to update the property value. If we use this class for our score
 properties, we'll be able to observe and update them from different places inside and outside our `main.kt` class. So
 let's use it!
 
@@ -89,7 +89,7 @@ suspend fun main() = Korge(...) {
 Now we need to define the property observers. The first one will handle updates of the `score` property and update
 the `best` property value. The second one will handle update of the `best` property and save its value in the storage.
 
-```
+```kotlin
 suspend fun main() = Korge(...) {
 	...
 	//best.update(...)
@@ -121,7 +121,7 @@ suspend fun main() = Korge(...) {
 	// here it is
 	text("0", cellSize * 0.5, Colors.WHITE, font) {
 		setTextBounds(Rectangle(0.0, 0.0, bgBest.width, cellSize - 24.0))
-		format = format.copy(align = Html.Alignment.MIDDLE_CENTER)
+		alignment = TextAlignment.MIDDLE_CENTER
 		alignTopToTopOf(bgBest, 12.0)
 		centerXOn(bgBest)
 	}
@@ -147,7 +147,7 @@ suspend fun main() = Korge(...) {
 	// here is a new change
 	text(best.value.toString(), cellSize * 0.5, Colors.WHITE, font) {
 		setTextBounds(Rectangle(0.0, 0.0, bgBest.width, cellSize - 24.0))
-		format = format.copy(align = Html.Alignment.MIDDLE_CENTER)
+		alignment = TextAlignment.MIDDLE_CENTER
 		alignTopToTopOf(bgBest, 12.0)
 		centerXOn(bgBest)
 		// and here is another one
@@ -175,7 +175,7 @@ suspend fun main() = Korge(...) {
 	// here it is
 	text("0", cellSize * 0.5, Colors.WHITE, font) {
 		setTextBounds(Rectangle(0.0, 0.0, bgScore.width, cellSize - 24.0))
-		format = format.copy(align = Html.Alignment.MIDDLE_CENTER)
+		alignment = TextAlignment.MIDDLE_CENTER
 		alignTopToTopOf(bgScore, 12.0)
 		centerXOn(bgScore)
 	}
@@ -199,7 +199,7 @@ suspend fun main() = Korge(...) {
 	// here is a new change
 	text(score.value.toString(), cellSize * 0.5, Colors.WHITE, font) {
 		setTextBounds(Rectangle(0.0, 0.0, bgScore.width, cellSize - 24.0))
-		format = format.copy(align = Html.Alignment.MIDDLE_CENTER)
+		alignment = TextAlignment.MIDDLE_CENTER
 		alignTopToTopOf(bgScore, 12.0)
 		centerXOn(bgScore)
 		// and here is another one
@@ -285,7 +285,7 @@ Choose any option you like. :-)
 
 ## Updating score on restart
 
-We also should update score when the user choose to restart the game. Since we already have a special function for
+We also should update score when the user chooses to restart the game. Since we already have a special function for
 restarting, it's quite simple to achieve:
 
 ```kotlin
@@ -315,7 +315,7 @@ on different targets (since it's _native storage_), but the goal of this class i
 to write some simple data (key-value pairs) during the game run and to read it after the game is closed and reopened.
 
 You shouldn't create an instance of `NativeStorage` by yourself. Instead, you should use `Views.storage` extension
-property (that's why you can't . You can get an instance of `NativeStorage` wherever you have access to the `Stage`,
+property (that's why you can't initialize it before `main` function). You can get an instance of `NativeStorage` wherever you have access to the `Stage`,
 since `Stage` has `views` property. For example, you can get `NativeStorage` inside `main()` function. That's how we'll
 get it in our project:
 
@@ -381,7 +381,7 @@ suspend fun main() = Korge(...) {
 }
 ```
 
-`NativeStorage` lets you save and restore only `String` values, that's why we had to call `toInt()` and `toString` in
+`NativeStorage` allows you to save and restore only `String` values, that's why we had to call `toInt()` and `toString` in
 the code above.
 
 Well, that's it with the best score! If you run the game now, you'll see that the best score is restored after game
@@ -414,7 +414,7 @@ class History {
 
 This `Element` should know about positions of blocks at some point of the history. It also should know about the score
 at that point. Since block positions are always 16, let's create an `IntArray` with 16 values in the `Element` class.
-Those values will represent the ids of the blocks placed on each of 16 positions. Another property in `Element` will
+Those values will represent the ids of the blocks placed on each one of 16 positions. Another property in `Element` will
 contain the score.
 
 ```kotlin
@@ -426,7 +426,7 @@ class History {
 
 Now, let's get back to the `History` class. How we should create an instance of `History`? When we launch the game, we
 need to restore the game state. In order to do that, we can get a `String?` value from the `NativeStorage`. This value
-is nullable, because there might be no value saved in the storage. After we get the value, we need to restore the
+is nullable, because there may be no value saved in the storage. After we get the value, we need to restore the
 history. So let's pass this value to the `History` where we'll restore the state. We also need to add a special callback
 that will be called when we update current `History`. The resulting `History` constructor should look like this:
 
@@ -617,7 +617,7 @@ fun Container.restoreField(history: History.Element) {
 ```
 
 In the `main()` function we also need to restore the field if its state was saved during previous game launch. If it
-wasn't, we need to generate a new block. Right now we do only the last one. Here is the fix:
+wasn't, we need to generate a new block. Right now we do only the last action. Here is the fix:
 
 ```kotlin
 suspend fun main() = Korge(...) {
@@ -699,7 +699,7 @@ for yourself. If you haven't seen some of the steps, here is a full list of them
 * [KorGE Tutorial - Writing 2048 game. Step 1 - Views](https://blog.korge.org/korge-tutorial-writing-2048-game-step-1/)
 * [KorGE Tutorial - Writing 2048 game. Step 2 - State and interaction](https://blog.korge.org/korge-tutorial-writing-2048-game-step-2-controls/)
 * [KorGE Tutorial - Writing 2048 game. Step 3 - Animation](https://blog.korge.org/korge-tutorial-writing-2048-game-step-3-animation/)
-* KorGE Tutorial - Writing 2048 game. Step 4 - Data saving
+* [KorGE Tutorial - Writing 2048 game. Step 4 - Data saving](https://blog.korge.org/korge-tutorial-writing-2048-game-step-4-data-saving/)
 
 The code written in all the steps is available [here](https://gist.github.com/RezMike/539e442fa49d5329115a60597e3d438a).
 You can find the original project [on GitHub](https://github.com/RezMike/2048).

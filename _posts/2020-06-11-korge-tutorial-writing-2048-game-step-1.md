@@ -8,8 +8,8 @@ image: assets/images/titles/korge-tutorial-writing-2048-game-step-1.jpg
 
 In [the previous step](https://blog.korge.org/2020/06/korge-tutorial-writing-2048-game-step-0.html) we have created and
 configured a KorGE project for our game. In this step, we'll discuss KorGE's views and their positioning. We will also
-fill our stage with static elements using views, such as **Graphics**, **Container**, **RoundRect**, **
-Text** and **Image**. At the end of this step we will have the following result:
+fill our stage with static elements using views, such as **Graphics**, **Container**, **RoundRect**,
+**Text** and **Image**. At the end of this step we will have the following result:
 
 ![](/assets/images/assets/images/51935839105.png)
 
@@ -19,13 +19,13 @@ So let's start!
 
 View structure in KorGE is based on two types of elements: views and containers. A container is a view that can have
 other views as children. During rendering, KorGE goes through the elements of the root container (the game scene) and
-draws them in the order they're added to the view structure. The element added first will be covered by the other
+draws them in the order they've been added to the view structure. The element added first will be covered by the other
 element added after it and overlapping it:
 
 ![](/assets/images/51935839105%20(1).png)
 
-Each view has a size (**width** and **height**) and a position (**x** and **y**). **Width** and **
-height** determine the size of the rectangle bounding this view, **x** and **y** determine its position inside
+Each view has a size (**width** and **height**) and a position (**x** and **y**). **Width** and **height**
+determine the size of the rectangle bounding this view, **x** and **y** determine its position inside
 the parent container.
 
 # Main sizes
@@ -60,16 +60,15 @@ Now we can take a look at some KorGE views and use them.
 
 # RoundRect
 
-Some of the most common views in KorGE are **Graphics** and its derived elements (like **RoundRect** and **
-Circle**). We'll take a look at **Graphics** later. Now, to understand the concept of creating korge views, we
+Some of the most common views in KorGE are **Graphics** and its derived elements (like **RoundRect** and **Circle**).
+We'll take a look at **Graphics** later. Now, to understand the concept of creating korge views, we
 start with a simpler view - **RoundRect**.
 
 Let's try to draw our first dark rectangle that is the background of the game field. We create a new **RoundRect**
-object and specify its width and height, rounding radius and color. Then we specify its position via **x** and **
-y**:
+object and specify its width and height, rounding radius and color. Then we specify its position via **x** and **y**:
 
 ```kotlin
-val bgField = RoundRect(fieldSize, fieldSize, 5.0, color = Colors["#b9aea0"])
+val bgField = RoundRect(fieldSize, fieldSize, 5.0, fill = Colors["#b9aea0"])
 bgField.x = leftIndent
 bgField.y = topIndent
 ```
@@ -83,7 +82,7 @@ Nothing! There's no rectangle on the screen. But why?
 **We forgot to add bgField to the root container!** Let's fix it and restart the game.
 
 ```kotlin
-val bgField = RoundRect(fieldSize, fieldSize, 5.0, color = Colors["#b9aea0"])
+val bgField = RoundRect(fieldSize, fieldSize, 5.0, fill = Colors["#b9aea0"])
 bgField.x = leftIndent
 bgField.y = topIndent
 addChild(bgField)
@@ -102,37 +101,35 @@ KorGE provides a convenient way of working with a structured view tree. It uses 
 to create a special View DSL. Let's rewrite the creation of bgField using it:
 
 ```kotlin
-val bgField = roundRect(fieldSize, fieldSize, 5.0, color = Colors["#b9aea0"]) {
+val bgField = roundRect(fieldSize, fieldSize, 5.0, fill = Colors["#b9aea0"]) {
   x = leftIndent
   y = topIndent
 }
 ```
 
-Do you see the difference? Instead of constructor **RoundRect(...)** we use a special function **roundRect(...)
-{...}** that has the same signature, but it adds the view to the container by itself. We also provide a code block (in
-the curly braces) as the last parameter and specify the coordinates in it (using **this.x** instead of **
-bgField.x**). We still assign the roundRect object to the variable **bgField** because we'll need this object
-later.
+Do you see the difference? Instead of constructor **RoundRect(...)** we use a special function **roundRect(...) {...}**
+that has the same signature, but it adds the view to the container by itself. We also provide a code block (in
+the curly braces) as the last parameter and specify the coordinates in it (using **this.x** instead of **bgField.x**).
+We still assign the roundRect object to the variable **bgField** because we'll need this object later.
 
-We can also simplify this code a bit using a special function - **position(x, y)**:
+We can also simplify this code a bit by using a special function - **position(x, y)**:
 
 ```kotlin
-val bgField = roundRect(fieldSize, fieldSize, 5.0, color = Colors["#b9aea0"]) {
+val bgField = roundRect(fieldSize, fieldSize, 5.0, fill = Colors["#b9aea0"]) {
 	position(leftIndent, topIndent)
 }
 ```
 
-So we have a simpler and easier-to-read code that does the same (you can rerun the game and check). From now on we will
+Now we have simpler and easier-to-read code that does the same (you can rerun the game and make sure). From now on we will
 use only View DSL to build the view tree because it's the recommended approach.
 
 # Graphics
 
-**Graphics** lets you draw lines, shapes and complex contours. It has several methods for that, but we'll take a
-look only at a few of them.
+**Graphics** allows you to draw lines, shapes and complex contours. It has several methods for that, but we'll only take a
+look at a few of them.
 
 The Graphics object has its own DSL. The main functions are **fill**, **stroke** and **fillStroke**. There
-are also extension functions like **rect**, **rectHole**, **roundRect**, **arc**, **circle**
-and **ellipse**.
+are also extension functions like **rect**, **rectHole**, **roundRect**, **arc**, **circle** and **ellipse**.
 
 Here we create the first cell background using some of them:
 
@@ -177,13 +174,13 @@ So let's look at the result:
 
 Well done!
 
-Next we'll add elements at the top: the game logo and two blocks for the current score and the best score (we will
+Next we add elements at the top: the game logo and two blocks for the current score and the best score (we will
 change their values later).
 
 First, let's define the logo background. You should already understand this code:
 
 ```kotlin
-val bgLogo = roundRect(cellSize, cellSize, 5.0, color = Colors["#edc403"]) {
+val bgLogo = roundRect(cellSize, cellSize, 5.0, fill = Colors["#edc403"]) {
 	position(leftIndent, 30.0)
 }
 ```
@@ -200,11 +197,11 @@ functions like **alignRightToLeftOf**, **alignTopToBottomOf**, **centerBetween**
 use some of them to create and position score blocks:
 
 ```kotlin
-val bgBest = roundRect(cellSize * 1.5, cellSize * 0.8, 5.0, color = Colors["#bbae9e"]) {
+val bgBest = roundRect(cellSize * 1.5, cellSize * 0.8, 5.0, fill = Colors["#bbae9e"]) {
 	alignRightToRightOf(bgField)
 	alignTopToTopOf(bgLogo)
 }
-val bgScore = roundRect(cellSize * 1.5, cellSize * 0.8, 5, color = Colors["#bbae9e"]) {
+val bgScore = roundRect(cellSize * 1.5, cellSize * 0.8, 5, fill = Colors["#bbae9e"]) {
 	alignRightToLeftOf(bgBest, 24)
 	alignTopToTopOf(bgBest)
 }
@@ -216,8 +213,8 @@ The next part of this step – text elements.
 
 # Text
 
-KorGE has a simple view for displaying text - **text**. But we also need a bitmap font for it. I've decided to
-use **Clear Sans** font. You can find the needed files (**clear_sans.fnt** and **clear_sans.png**) in my
+KorGE has a simple view for displaying text - **text**. But we also need a font for it. I've decided to
+use **Clear Sans** bitmap font. You can find the needed files (**clear_sans.fnt** and **clear_sans.png**) in my
 repository [on GitHub](https://github.com/RezMike/2048/tree/master/src/commonMain/resources). You should add these files
 to your **resources** folder in **commonMain**. Then we need to import the font before using it (I prefer to do
 it at the beginning of the **main** function):
@@ -226,8 +223,8 @@ it at the beginning of the **main** function):
 val font = resourcesVfs["clear_sans.fnt"].readBitmapFont()
 ```
 
-Now we can add a text view for our logo. We specify a text string, a text size, a text color and a font. We use **
-centerOn** function to center it on our logo background:
+Now we can add a text view for our logo. We specify a text string, a text size, a text color and a font. We use
+**centerOn** function to center it on our logo background:
 
 ```kotlin
 text("2048", cellSize * 0.5, Colors.WHITE, font).centerOn(bgLogo)
@@ -235,8 +232,8 @@ text("2048", cellSize * 0.5, Colors.WHITE, font).centerOn(bgLogo)
 
 ![](/assets/images/51935839105%20(8).png)
 
-Now we can add text views for the current score and the best score the same way. We'll take advantage of **
-alignTopToTopOf** function and specify indent between two views as the second argument. We'll also specify text bounds
+Next we can add text views for the current score and the best score the same way. We'll take advantage of
+**alignTopToTopOf** function and specify indent between two views as the second argument. We'll also specify text bounds
 for score number views and align them, so they will be shown correctly with different numbers.
 
 ```kotlin
@@ -246,7 +243,7 @@ text("BEST", cellSize * 0.25, RGBA(239, 226, 210), font) {
 }
 text("0", cellSize * 0.5, Colors.WHITE, font) {
 	setTextBounds(Rectangle(0.0, 0.0, bgBest.width, cellSize - 24.0))
-	format = format.copy(align = Html.Alignment.MIDDLE_CENTER)
+	alignment = TextAlignment.MIDDLE_CENTER
 	alignTopToTopOf(bgBest, 12.0)
 	centerXOn(bgBest)
 }
@@ -256,7 +253,7 @@ text("SCORE", cellSize * 0.25, RGBA(239, 226, 210), font) {
 }
 text("0", cellSize * 0.5, Colors.WHITE, font) {
 	setTextBounds(Rectangle(0.0, 0.0, bgScore.width, cellSize - 24.0))
-	format = format.copy(align = Html.Alignment.MIDDLE_CENTER)
+	alignment = TextAlignment.MIDDLE_CENTER
 	centerXOn(bgScore)
 	alignTopToTopOf(bgScore, 12.0)
 }
@@ -286,7 +283,7 @@ whole container as a button.
 ```kotlin
 val btnSize = cellSize * 0.3
 val restartBlock = container {
-	val background = roundRect(btnSize, btnSize, 5.0, color = RGBA(185, 174, 160))
+	val background = roundRect(btnSize, btnSize, 5.0, fill = RGBA(185, 174, 160))
 	image(restartImg) {
 		size(btnSize * 0.8, btnSize * 0.8)
 		centerOn(background)
@@ -295,7 +292,7 @@ val restartBlock = container {
 	alignRightToRightOf(bgField)
 }
 val undoBlock = container {
-	val background = roundRect(btnSize, btnSize, 5.0, color = RGBA(185, 174, 160))
+	val background = roundRect(btnSize, btnSize, 5.0, fill = RGBA(185, 174, 160))
 	image(undoImg) {
 		size(btnSize * 0.6, btnSize * 0.6)
 		centerOn(background)
