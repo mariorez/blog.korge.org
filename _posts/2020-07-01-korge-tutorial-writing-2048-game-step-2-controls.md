@@ -16,8 +16,8 @@ define controls that will let users move the blocks. At the end of this step we 
 
 Let's start by defining numbers that the user can see in the game. At the moment, we only have the **main.kt** file in
 our project. Let's create a new file, call it **Number.kt** and add enum class **Number** there. This enum will have two
-properties: **value (Int)** and **color (RGBA)**. The **value** will define a number that we will show in blocks, the **
-color** - a color that blocks with this number will be painted:
+properties: **value (Int)** and **color (RGBA)**. The **value** will define a number that we will show in blocks, the
+**color** - a color that blocks with this number will be painted:
 
 ```kotlin
 enum class Number(val value: Int, val color: RGBA) {
@@ -52,8 +52,8 @@ enum class Number(val value: Int, val color: RGBA) {
 ## Blocks
 
 Now let's add a special view called **Block** that will move across our field when a user interacts with it. To do it,
-create a new file **Block.kt** and add a new class extending **Container** with one property **number** of type **
-Number** (the enum created in the previous section):
+create a new file **Block.kt** and add a new class extending **Container** with one property **number** of type
+**Number** (the enum created in the previous section):
 
 ```kotlin
 class Block(val number: Number) : Container() {
@@ -66,7 +66,7 @@ and a **text** with the number value:
 ```kotlin
 class Block(val number: Number) : Container() {
 	init {
-		roundRect(cellSize, cellSize, 5.0, color = number.color)
+		roundRect(cellSize, cellSize, 5.0, fill = number.color)
 		val textColor = when (number) {
 			ZERO, ONE -> Colors.BLACK
 			else -> Colors.WHITE
@@ -79,13 +79,13 @@ class Block(val number: Number) : Container() {
 ```
 
 Here we use undefined values: **cellSize** and **font**. That's actually the variables we created in our **main**
-function in **Step 1**. To make all needed variables available outside the **main** function, let's update the **
-main.kt** file a little bit. Since we will need these variables as well as **fieldSize**, **leftIndent** and **
-topIndent** later, outside the main function, we simply move them out and make them top-level. But as top-level, they
+function in **Step 1**. To make all needed variables available outside the **main** function, let's update the
+**main.kt** file a little bit. Since we will need these variables as well as **fieldSize**, **leftIndent** and
+**topIndent** later, outside the main function, we simply move them out and make them top-level. But as top-level, they
 should be initialized with default values (we can't make them **lateinit**). For **Double** variables it's easy –
 write **0.0** as default, but what about BitmapFont? Should we make it nullable even if we initialize it in the first
-line of the **main** function? Well, no, because in Kotlin there is a special delegate for that – **
-Delegates.notNull()**. So the resulting main function should look like this:
+line of the **main** function? Well, no, because in Kotlin there is a special delegate for that –
+**Delegates.notNull()**. So the resulting main function should look like this:
 
 ```kotlin
 var cellSize: Double = 0.0
@@ -193,8 +193,8 @@ we write the game. So the functions are:
 * `get(x, y)` – an operator function that returns a block id for this position
 * `set(x, y, value)` – an operator function that sets a block id for this position
 * `forEach(action)` – a function that calls this **action** for each block id in **array**
-* `equals(other)` – checks whether the **other** object is **PositionMap** and whether positions of **this** and **
-  that** map are equal.
+* `equals(other)` – checks whether the **other** object is **PositionMap** and whether positions of **this** and
+**that** map are equal
 * `hashCode()` – delegates calculating hashCode to **array**
 
 And here's the implementation of these functions:
@@ -273,7 +273,7 @@ class PositionMap(...) {
 ```
 
 Let's return to the **main** function, and in the end of it we call `generateBlock()` to generate a new block when the
-game start:
+game starts:
 
 ```kotlin
 fun main() = Korge(...) {
@@ -303,9 +303,9 @@ of events:
 And there are also different ways how you listen to events. Here we'll use just one of them (via DSL function), if you
 want to see more – feel free to check [this page](https://korlibs.soywiz.com/korge/input/) of the KorGE documentation.
 
-But before we define event listeners, let's create a special enum class **Direction** (I decided to put it in **
-PositionMap.kt** file, you can choose your own place). This enum will have 4 values: **LEFT**, **RIGHT**, **TOP** and **
-BOTTOM**. They define the directions in which a user can move blocks.
+But before we define event listeners, let's create a special enum class **Direction** (I decided to put it in
+**PositionMap.kt** file, you can choose your own place). This enum will have 4 values: **LEFT**, **RIGHT**, **TOP** and
+**BOTTOM**. They define the directions in which a user can move blocks.
 
 ```kotlin
 enum class Direction {
@@ -313,13 +313,14 @@ enum class Direction {
 }
 ```
 
-Well, now we can define **onKeyDown**. Just add these lines in the end of the main function:
+Well, now we can define **keys.down** listener for **onKeyDown** event. Just add these lines in the end of the main
+function:
 
 ```kotlin
 fun main() = Korge(...) {
 	...
 
-	onKeyDown {
+	keys.down {
 		when (it.key) {
 			Key.LEFT -> moveBlocksTo(Direction.LEFT)
 			Key.RIGHT -> moveBlocksTo(Direction.RIGHT)
@@ -331,24 +332,24 @@ fun main() = Korge(...) {
 }
 ```
 
-Inside **onKeyDown** block, we get a **KeyEvent** as **it**. **KeyEvent** has special properties like **type** (in this
-case - **Key.Type.DOWN**), **id**, **key**, **keyCode** and **character**. So inside **when**, we check the **key** a
-user pressed, and if it's one of the arrow keys, we call `moveBlockTo(direction)` function with the appropriate **
-Direction** value (we'll define this function a bit later).
+Inside **down** block, we get a KeyEvent as **it**. KeyEvent has special properties like **type** (in this
+case - Key.Type.DOWN), **id**, **key**, **keyCode** and **character**. So inside **when**, we check the **key** the
+user pressed, and if it's one of the arrow keys, we call `moveBlockTo(direction)` function with the appropriate
+**Direction** value (we'll define this function a bit later).
 
 Let's also define another event listener – **onSwipe**. This one is more complex. It will listen to mouse events and
-check if a user swipes via mouse. A swipe is a gesture when the mouse is pressed, moved a few pixels at some direction
+check if the user swipes via his mouse. A swipe is a gesture when the mouse is pressed, moved a few pixels at some direction
 and then released. The **onSwipe** listener lets us define a **SwipeDirection** – one of 4 possible movement directions,
 and a **threshold** – the quantity of pixels a mouse should be moved to generate this event (once the event is
-generated, it won't be generated again until a user releases the mouse). So let's add an **onSwipe** listener the **
-threshold** of **20.0** in the main function right after **onKeyDown {}** and define the same check as in the previous
+generated, it won't be generated again until a user releases the mouse). So let's add an **onSwipe** listener with the
+**threshold** of **20.0** in the main function right after **keys.down {}** and define the same check as in the previous
 listener.
 
 ```kotlin
 fun main() = Korge(...) {
 	...
 
-	onKeyDown {
+	keys.down {
 		when (it.key) {
 			Key.LEFT -> moveBlocksTo(Direction.LEFT)
 			Key.RIGHT -> moveBlocksTo(Direction.RIGHT)

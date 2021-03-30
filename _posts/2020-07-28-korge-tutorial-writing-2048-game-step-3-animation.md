@@ -87,9 +87,9 @@ next.
 
 ## Game over overlay
 
-Now we need to add a special function `showGameOver` that will show a game over overlay and execute a special callback (
-provided as a parameter `onRestart`) after a gamer clicks "Try again". This function should be called on a `Container` (
-and it is called on our `Stage`), thus we can add other views to our stage:
+Now we need to add a special function `showGameOver` that will show a game over overlay and execute a special callback
+(provided as a parameter `onRestart`) after a gamer clicks "Try again". This function should be called on a `Container`
+(and it is called on our `Stage`), thus we can add other views to our stage:
 
 ```kotlin
 fun Container.showGameOver(onRestart: () -> Unit) = container {
@@ -113,7 +113,7 @@ fun Container.showGameOver(onRestart: () -> Unit) = container {
 	val format = TextFormat(
 			color = RGBA(0, 0, 0),
 			size = 40,
-			font = Html.FontFace.Bitmap(font)
+			font = font
 	)
 	val skin = TextSkin(
 			normal = format,
@@ -128,7 +128,7 @@ fun Container.showGameOver(onRestart: () -> Unit) = container {
 
 	position(leftIndent, topIndent)
 
-	roundRect(fieldSize, fieldSize, 5.0, color = Colors["#FFFFFF33"])
+	roundRect(fieldSize, fieldSize, 5.0, fill = Colors["#FFFFFF33"])
 	text("Game Over", 60.0, Colors.BLACK, font) {
 		centerBetween(0.0, 0.0, fieldSize, fieldSize)
 		y -= 60
@@ -139,7 +139,7 @@ fun Container.showGameOver(onRestart: () -> Unit) = container {
 		onClick { restart() }
 	}
 
-	onKeyDown {
+	keys.down {
 		when (it.key) {
 			Key.ENTER, Key.SPACE -> restart()
 			else -> Unit
@@ -155,7 +155,7 @@ overlay looks like (it'll appear after you press any arrow key or swipe):
 
 ## Game restart
 
-After implementing game over overlay, we need to add logic that should be executed when the user clicks on the "Try
+After implementing the game over overlay, we need to add logic that should be executed when the user clicks on the "Try
 again" text. We already have `restart()` call in the `moveBlocksTo` function, let's create this function and add code in
 it. We need to clear the field and add a new block there:
 
@@ -223,8 +223,8 @@ fun Stage.moveBlocksTo(direction: Direction) {
 }
 ```
 
-Here we create two mutable lists: one for moves (pairs of an id of the moving block and a new position) and the other
-for merges (triples of two ids of the merging blocks and a new position). Then we calculate a new map - we pass a copy
+Here we create two mutable lists: one for moves (pairs of the moving block id and a new position) and the other one
+for merges (triples of two merging block ids and a new position). Then we calculate a new map - we pass a copy
 of the current map that will be changed during calculation, a direction of the movement and our two lists.
 
 After the calculation we check that two maps are different (using `equals` operator defined in `PositionMap` class). If
@@ -294,11 +294,11 @@ fun calculateNewMap(
 }
 ```
 
-First, we create a new `PositionMap` instance, define a start index based on the direction (it's an number of a column
+First, we create a new `PositionMap` instance, define a start index based on the direction (it's a number of a column
 or a row with which we start calculating) and define a current index of a column or a row (`columnRow` variable).
 
 Second, we define an inner function `newPosition` that takes a `line` (row/column) number and returns the next position
-based of the movement direction.
+based on the movement direction.
 
 And third, we go through all the lines (from 0 to 3), get current position that has a block and get current block id,
 get next position that has a block and get next id, then check whether the current number and the next number are the
@@ -340,7 +340,7 @@ fun numberFor(blockId: Int) = blocks[blockId]!!.number
 
 ## Animation of moves and merges
 
-Now, the last feature we will add in this article and also the main feature of it – the animation! KorGE allows you to
+Now, the last feature we will add in this article and also the main feature of it – animation! KorGE allows you to
 use different types of animation. We will use [tween animations](https://korlibs.soywiz.com/korge/animation/#tweens)
 with the [Animator DSL](https://korlibs.soywiz.com/korge/animation/#animator) because it will let us define different
 animation elements (tweens) in a special order, so that some elements will be executed in parallel, some – in sequence,
@@ -440,5 +440,5 @@ Well, we've added a lot of code in this step. If you run the game now, you will 
 
 ![](/assets/images/sample-2.gif)
 
-The whole project code after this step is shown [here](https://gist.github.com/RezMike/3979e24f0e90796767552cc89792ee20)
-. In the next step we'll add scores and saving state via NativeStorage. Stay tuned!
+The whole project code after this step is shown [here](https://gist.github.com/RezMike/3979e24f0e90796767552cc89792ee20).
+In the next step we'll add scores and saving state via NativeStorage. Stay tuned!

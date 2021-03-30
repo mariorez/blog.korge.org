@@ -72,8 +72,7 @@ korge {
 _**Note:** you can read the full configuration
 description [here](https://korlibs.soywiz.com/korge/setup/gradle-plugin/#the-korge-extension)._
 
-Now let's go to the main function that is executed when the game is launched. It locates at **
-src/commonMain/kotlin/main.kt**. It should look like this:
+Now let's go to the main function that is executed when the game is launched. It locates at **src/commonMain/kotlin/main.kt**. It should look like this:
 
 ```kotlin
 suspend fun main() = Korge(width = 512, height = 512, bgcolor = Colors["#2b2b2b"]) {
@@ -95,8 +94,7 @@ suspend fun main() = Korge(width = 512, height = 512, bgcolor = Colors["#2b2b2b"
 It's a template code. You can launch the project _(the section below)_ and see what it does. The important part here is
 the **Korge(...)** call. It lets you specify the stage's size, background color and some other elements.
 
-Let's define width, height, title and background color of our game. Also let's remove unnecessary stuff inside **
-Korge(...) { ... }**:
+Let's define width, height, title and background color of our game. Also let's remove unnecessary stuff inside **Korge(...) { ... }**:
 
 ```kotlin
 suspend fun main() = Korge(width = 480, height = 640, title = "2048", bgcolor = RGBA(253, 247, 240)) {
@@ -106,7 +104,7 @@ suspend fun main() = Korge(width = 480, height = 640, title = "2048", bgcolor = 
 
 _**Note:** There are several ways how you can define a color in korge. One of them is by specifying Int/Float/HexInt
 values for red, green, blue and alpha (optional) in **RGBA**. The other one is by specifying hex string for the
-whole color via **Colors["#......"]**. The another one - by using color name with **Colors.** **prefix. So the
+whole color via **Colors["#......"]**. The another one - by using color name with **Colors.*** prefix. So the
 four options below are equivalent:_
 
 * _`RGBA(0x00, 0x00, 0xFF, 0xFF)`_
@@ -119,14 +117,14 @@ After the previous changes let's launch our game and see that everything works c
 # Game launch
 
 Since KorGE supports several platforms, you can launch your game on any of them. There are official guides about game
-launch on [Desktop (JVM)](https://korlibs.soywiz.com/korge/targets/jvm/)
-, [Web (JS)](https://korlibs.soywiz.com/korge/targets/web/)
-, [Desktop (Native)](https://korlibs.soywiz.com/korge/targets/desktop/)
-, [Android](https://korlibs.soywiz.com/korge/targets/android/)
+launch on [Desktop (JVM)](https://korlibs.soywiz.com/korge/targets/jvm/),
+[Web (JS)](https://korlibs.soywiz.com/korge/targets/web/),
+[Desktop (Native)](https://korlibs.soywiz.com/korge/targets/desktop/),
+[Android](https://korlibs.soywiz.com/korge/targets/android/)
 and [iOS](https://korlibs.soywiz.com/korge/targets/android/). I prefer to use JVM because it's the simplest and fastest
-way of testing a KorGE project.In order to launch your game on JVM, you should write this line in terminal:
+way of testing a KorGE project. In order to launch your game on JVM, you should write this line in terminal:
 
-```kotlin
+```
 ./gradlew runJvm
 ```
 
@@ -136,8 +134,8 @@ element at the top of the Intellij's window:
 ![](/assets/images/52348213274%20(1).jpg)
 
 You need to click on it and select "Edit Configurations...". You'll see the "Run/Debug Configurations" window. Now click
-on the "+" button at the top left of the window, select "Gradle" and specify your Gradle project and Gradle task **
-runJvm** like here:
+on the "+" button at the top left of the window, select "Gradle" and specify your Gradle project and Gradle task
+**runJvm** like here:
 
 ![](/assets/images/52348213274%20(2).jpg)
 
