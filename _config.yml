@@ -3,7 +3,7 @@ name: "KorGE Game Engine"
 title: "KorGE Game Engine"
 description: "Kotlin Multiplatform Game Engine"
 meta_description: "Kotlin Multiplatform Game Engine."
-logo: 'assets/images/logo.png'
+logo: 'assets/images/logoz.png'
 favicon: 'assets/images/favicon.ico'
 paginate: 12
 #baseurl: '.'
@@ -21,6 +21,14 @@ authors:
     web: https://soywiz.com/
     twitter: https://twitter.com/cballesterosvel
     description: "Author of KorGE."
+  ziwyos:
+    name: Carlos Ballesteros Velasco
+    display_name: ziwyos
+    gravatar: 52a7e0168b945855f23900c0a8da7787
+    email: soywiz@gmail.com
+    web: https://soywiz.com/
+    twitter: https://twitter.com/cballesterosvel
+    description: "EGroK fo rohtuA."
   rezmike:
     name: Mikhail Reznichenko
     display_name: rezmike
