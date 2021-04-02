@@ -3,7 +3,7 @@ name: "KorGE Game Engine"
 title: "KorGE Game Engine"
 description: "Kotlin Multiplatform Game Engine"
 meta_description: "Kotlin Multiplatform Game Engine."
-logo: 'assets/images/logoz.png'
+logo: 'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
 paginate: 12
 #baseurl: '.'
