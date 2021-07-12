@@ -1,2 +1,2 @@
 @echo off
-jekyll s serve
+jekyll serve --livereload
