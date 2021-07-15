@@ -4,7 +4,7 @@ title: "KorGE is looking for core and non-dev members! Next GameJAM will start o
 author: soywiz
 categories: [ Releases ]
 image: assets/images/titles/need-you.jpg
-featured: true
+featured: false
 ---
 
 ## GameJAM

@@ -4,7 +4,7 @@ title: "Presenting the long awaited KorGE rebranding: Korgeta Z!"
 author: ziwyos
 categories: [ Releases ]
 image: assets/images/titles/korgetaz.png
-featured: true
+featured: false
 ---
 
 Today we are super excited to tell you about the long awaited rebranding of KorGE! But first of all, we want to

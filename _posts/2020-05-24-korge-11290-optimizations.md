@@ -4,7 +4,7 @@ title: "KorGE 1.12.8.0: Huge Optimizations!"
 author: soywiz
 categories: [ Releases ]
 image: assets/images/titles/korge-11290-optimizations.jpg
-featured: true
+featured: false
 ---
 
 There is a new version of KorGE available now!
