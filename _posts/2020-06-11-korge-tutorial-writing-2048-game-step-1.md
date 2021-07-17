@@ -6,7 +6,7 @@ categories: [ Tutorials ]
 image: assets/images/titles/korge-tutorial-writing-2048-game-step-1.jpg
 ---
 
-In [the previous step](https://blog.korge.org/2020/06/korge-tutorial-writing-2048-game-step-0.html) we have created and
+In [the previous step](https://blog.korge.org/korge-tutorial-writing-2048-game-step-0/) we have created and
 configured a KorGE project for our game. In this step, we'll discuss KorGE's views and their positioning. We will also
 fill our stage with static elements using views, such as **Graphics**, **Container**, **RoundRect**,
 **Text** and **Image**. At the end of this step we will have the following result:
