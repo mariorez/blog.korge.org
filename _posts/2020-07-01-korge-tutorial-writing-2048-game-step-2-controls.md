@@ -301,7 +301,7 @@ of events:
 * and many more...
 
 And there are also different ways how you listen to events. Here we'll use just one of them (via DSL function), if you
-want to see more – feel free to check [this page](https://korlibs.soywiz.com/korge/input/) of the KorGE documentation.
+want to see more – feel free to check [this page](https://korlibs.soywiz.com/korge/reference/input/) of the KorGE documentation.
 
 But before we define event listeners, let's create a special enum class **Direction** (I decided to put it in
 **PositionMap.kt** file, you can choose your own place). This enum will have 4 values: **LEFT**, **RIGHT**, **TOP** and

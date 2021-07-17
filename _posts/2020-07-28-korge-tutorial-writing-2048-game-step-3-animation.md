@@ -341,8 +341,8 @@ fun numberFor(blockId: Int) = blocks[blockId]!!.number
 ## Animation of moves and merges
 
 Now, the last feature we will add in this article and also the main feature of it – animation! KorGE allows you to
-use different types of animation. We will use [tween animations](https://korlibs.soywiz.com/korge/animation/#tweens)
-with the [Animator DSL](https://korlibs.soywiz.com/korge/animation/#animator) because it will let us define different
+use different types of animation. We will use [tween animations](https://korlibs.soywiz.com/korge/reference/animation/#tweens)
+with the [Animator DSL](https://korlibs.soywiz.com/korge/reference/animation/#animator) because it will let us define different
 animation elements (tweens) in a special order, so that some elements will be executed in parallel, some – in sequence,
 and we will be able to define blocks of plain code (without tweening animation) that should be executed between them.
 
@@ -441,4 +441,4 @@ Well, we've added a lot of code in this step. If you run the game now, you will 
 ![](/assets/images/sample-2.gif)
 
 The whole project code after this step is shown [here](https://gist.github.com/RezMike/3979e24f0e90796767552cc89792ee20).
-In the next step we'll add scores and saving state via NativeStorage. Stay tuned!
+In the [next step](https://blog.korge.org/korge-tutorial-writing-2048-game-step-4-data-saving/) we'll add scores and saving state via NativeStorage.
