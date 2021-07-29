@@ -117,11 +117,11 @@ After the previous changes let's launch our game and see that everything works c
 # Game launch
 
 Since KorGE supports several platforms, you can launch your game on any of them. There are official guides about game
-launch on [Desktop (JVM)](https://korlibs.soywiz.com/korge/targets/jvm/),
-[Web (JS)](https://korlibs.soywiz.com/korge/targets/web/),
-[Desktop (Native)](https://korlibs.soywiz.com/korge/targets/desktop/),
-[Android](https://korlibs.soywiz.com/korge/targets/android/)
-and [iOS](https://korlibs.soywiz.com/korge/targets/android/). I prefer to use JVM because it's the simplest and fastest
+launch on [Desktop (JVM)](https://korlibs.soywiz.com/korge/deployment/jvm/),
+[Web (JS)](https://korlibs.soywiz.com/korge/deployment/web/),
+[Desktop (Native)](https://korlibs.soywiz.com/korge/deployment/desktop/),
+[Android](https://korlibs.soywiz.com/korge/deployment/android/)
+and [iOS](https://korlibs.soywiz.com/korge/deployment/android/). I prefer to use JVM because it's the simplest and fastest
 way of testing a KorGE project. In order to launch your game on JVM, you should write this line in terminal:
 
 ```
@@ -145,6 +145,6 @@ At this moment, when launching the game, we'll see just a beige window with the 
 
 ![](/assets/images/52348213274%20(3).jpg)
 
-In [the next part](https://blog.korge.org/2020/06/korge-tutorial-writing-2048-game-step-1.html) of the tutorial, we'll
+In [the next part](https://blog.korge.org/korge-tutorial-writing-2048-game-step-1/) of the tutorial, we'll
 know how to use graphics and text views and how to position them. We'll add a logo, score views and a background for our
 game. Stay tuned!

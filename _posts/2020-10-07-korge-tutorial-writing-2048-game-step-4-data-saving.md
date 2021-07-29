@@ -6,7 +6,7 @@ categories: [ Tutorials ]
 image: assets/images/titles/korge-tutorial-writing-2048-game-step-4-data-saving.jpg
 ---
 
-In [the previous step](https://blog.korge.org/korge-tutorial-writing-2048-game-step-1/) we have added movement and
+In [the previous step](https://blog.korge.org/korge-tutorial-writing-2048-game-step-3-animation/) we have added movement and
 merging of blocks with animation. The game is already playable. But to make it complete, we need to add score points. In
 this step we will do it, and along with that we will also add another feature – saving data of the current game
 (game field and score). In the end, we'll have a complete 2048 game:
