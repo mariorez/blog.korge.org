@@ -45,6 +45,14 @@ authors:
     web: https://github.com/emign
     twitter: ""
     description: ""
+  geoge-koller:
+    name: George Koller
+    display_name: georgekoller
+    gravatar: "798d72655741799a581b316a745e9ea1"
+    email: ""
+    web: https://funuage.org/
+    twitter: ""
+    description: ""
 
 # Plugins
 plugins: 
