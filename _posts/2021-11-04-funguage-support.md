@@ -24,7 +24,7 @@ important will be to teach a selected Natural Language (NatLANG).
 Adults are learning Symbols at typical rates of well over 25 per hour (as many as 50, average about 30),
 we do not have good data yet on young children, but indications are positive.
 
-Please consider to preview the Game at: <https://Funuage.org> (at this point).
+Please consider to preview the Game at: <https://funuage-game.web.app/> (at this point).
 
 *The concept of the game is pretty simple:* Currently there are 12 different components introducing symbols inside the VILLAGE.
 However, there are Four PATHS out of the Village, and GATES will open to allow the player to try his fortune along any Path the player has learned enough to attempt.
