@@ -50,7 +50,7 @@ these values in different places and they all can't be accessed in the same plac
 
 The better way is to use `ObservableProperty` class provided by `korio` library. This class has a constructor with the
 initial value, a `value` property to get the current value, and two very useful functions – `observe(handler)`
-and `update(value)`. The first one allows you to add a new `hander` that will observe and handle new values of the property
+and `update(value)`. The first one allows you to add a new `handler` that will observe and handle new values of the property
 when the property is updated. The second one allows you to update the property value. If we use this class for our score
 properties, we'll be able to observe and update them from different places inside and outside our `main.kt` class. So
 let's use it!
@@ -274,7 +274,7 @@ fun Stage.moveBlocksTo(direction: Direction) {
 			isAnimationRunning = false
 
 			// new code here
-			val points = merges.sumBy { numberFor(it.first).value }
+			val points = merges.sumOf { numberFor(it.first).value }
 			score.update(score.value + points)
 		}
 	}
