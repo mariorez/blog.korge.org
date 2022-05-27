@@ -64,7 +64,7 @@ and name of the game:
 
 ```kotlin
 korge {
-	id = "com.example.2048"
+	id = "com.example.puzzle2048"
 	name = "2048"
 }
 ```
