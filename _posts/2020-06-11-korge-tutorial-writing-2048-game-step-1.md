@@ -102,8 +102,8 @@ to create a special View DSL. Let's rewrite the creation of bgField using it:
 
 ```kotlin
 val bgField = roundRect(fieldSize, fieldSize, 5.0, fill = Colors["#b9aea0"]) {
-  x = leftIndent
-  y = topIndent
+    x = leftIndent
+    y = topIndent
 }
 ```
 
@@ -116,7 +116,7 @@ We can also simplify this code a bit by using a special function - **position(x,
 
 ```kotlin
 val bgField = roundRect(fieldSize, fieldSize, 5.0, fill = Colors["#b9aea0"]) {
-	position(leftIndent, topIndent)
+    position(leftIndent, topIndent)
 }
 ```
 
@@ -135,10 +135,10 @@ Here we create the first cell background using some of them:
 
 ```kotlin
 graphics {
-	position(leftIndent, topIndent)
-	fill(Colors["#cec0b2"]) {
-		roundRect(10, 10, cellSize, cellSize, 5.0)
-	}
+    position(leftIndent, topIndent)
+    fill(Colors["#cec0b2"]) {
+        roundRect(10.0, 10.0, cellSize, cellSize, 5.0)
+    }
 }
 ```
 
@@ -157,14 +157,14 @@ two **for** cycles:
 
 ```kotlin
 graphics {
-	position(leftIndent, topIndent)
-	fill(Colors["#cec0b2"]) {
-		for (i in 0..3) {
-			for (j in 0..3) {
-				roundRect(10 + (10 + cellSize) * i, 10 + (10 + cellSize) * j, cellSize, cellSize, 5.0)
-			}
-		}
-	}
+    position(leftIndent, topIndent)
+    fill(Colors["#cec0b2"]) {
+        for (i in 0..3) {
+            for (j in 0..3) {
+                roundRect(10 + (10 + cellSize) * i, 10 + (10 + cellSize) * j, cellSize, cellSize, 5.0)
+            }
+        }
+    }
 }
 ```
 
@@ -306,6 +306,5 @@ So we have the final result for this step:
 
 ![](/assets/images/51935839105%20(10).png)
 
-The whole code written in this step is shown [here](https://gist.github.com/RezMike/b3fa014c0ac44ce46b7413952b3fa465).
-In [the next step](https://blog.korge.org/korge-tutorial-writing-2048-game-step-2-controls/) we'll add dynamic blocks
-and implement interaction with them. Stay tuned!
+The whole code written in this step is shown [here](https://github.com/mariorez/korge-2048/tree/step-1).
+In [the next step](https://blog.korge.org/korge-tutorial-writing-2048-game-step-2-controls/) we'll add dynamic blocks and implement interaction with them. Stay tuned!
