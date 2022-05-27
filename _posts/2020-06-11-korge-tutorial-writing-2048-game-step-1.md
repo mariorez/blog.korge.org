@@ -306,5 +306,5 @@ So we have the final result for this step:
 
 ![](/assets/images/51935839105%20(10).png)
 
-The whole code written in this step is shown [here](https://github.com/mariorez/korge-2048/tree/step-1).
+The whole code written in this step is shown [here](https://gist.github.com/RezMike/b3fa014c0ac44ce46b7413952b3fa465).
 In [the next step](https://blog.korge.org/korge-tutorial-writing-2048-game-step-2-controls/) we'll add dynamic blocks and implement interaction with them. Stay tuned!
